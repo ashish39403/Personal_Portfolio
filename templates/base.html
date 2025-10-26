@@ -1,0 +1,156 @@
+{% load tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashish.io - Portfolio</title>
+
+    <style>
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: hsl(var(--b2)); }
+        ::-webkit-scrollbar-thumb { background: hsl(var(--p)); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: hsl(var(--pf)); }
+
+        /* Link underline animation */
+        .nav-link {
+            position: relative;
+            display: inline-block;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0%;
+            height: 2px;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            transition: width 0.3s ease-in-out;
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Glassmorphism Navbar */
+        .glass-navbar {
+            backdrop-filter: blur(12px);
+            background: rgba(30, 30, 30, 0.4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Gradient Logo Text */
+        .gradient-text {
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Button hover animation */
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 12px rgba(0, 114, 255, 0.6);
+        }
+    </style>
+
+    {% tailwind_css %}
+</head>
+<body class="bg-base-100">
+    
+    <!-- Modern Glass Navbar -->
+    <div class="navbar glass-navbar sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            
+            <!-- Left -->
+            <div class="flex items-center gap-3">
+                <a href="/" class="text-2xl font-extrabold gradient-text tracking-wide">Ashish.io</a>
+            </div>
+
+            <!-- Center Menu (Desktop) -->
+            <ul class="hidden lg:flex space-x-8 font-medium text-sm">
+                <li><a href="/" class="nav-link hover:text-primary">Home</a></li>
+                <li><a href="{% url 'about' %}" class="nav-link hover:text-primary">About</a></li>
+                <li><a href="{% url 'project_list' %}" class="nav-link hover:text-primary">Projects</a></li>
+                <li><a href="{% url 'blog_list' %}" class="nav-link hover:text-primary">Blog</a></li>
+                <li><a href="{% url 'contact' %}" class="nav-link hover:text-primary">Contact</a></li>
+            </ul>
+
+            <!-- Right Section -->
+            <div class="flex items-center gap-3">
+                <!-- Theme Toggle -->
+                <label class="swap swap-rotate btn btn-ghost btn-circle">
+                    <input type="checkbox" id="theme-toggle" />
+                    <svg class="swap-on fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17Z..." />
+                    </svg>
+                    <svg class="swap-off fill-current w-10 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M21.64,13a1,1,0,0,0-1.05-.14..." />
+                    </svg>
+                </label>
+
+                <!-- CTA -->
+                <a href="{% url 'contact' %}" class="btn btn-primary btn-sm lg:btn-md">
+                    Contact Me
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <div class="dropdown lg:hidden dropdown-end">
+                    <div tabindex="0" role="button" class="btn btn-ghost btn-square">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </div>
+                    <!-- ✅ FIXED: added right-0 -->
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-lg bg-base-200 rounded-box w-52 right-0">
+                        <li><a href="{%url 'index'%}">Home</a></li>
+                        <li><a href="{% url 'about' %}">About</a></li>
+                        <li><a href="{% url 'project_list' %}">Projects</a></li>
+                        <li><a href="{% url 'blog_list' %}">Blog</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <main class="min-h-screen bg-base-100">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer (same as your version) -->
+    <footer class="footer footer-center p-10 bg-base-200 text-base-content">
+        <!-- ... unchanged footer ... -->
+    </footer>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        htmlElement.setAttribute('data-theme', currentTheme);
+        themeToggle.checked = currentTheme === 'light';
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                htmlElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mx-auto py-12">
+    <h1 class="text-5xl font-bold text-center mb-12">My Projects</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        {% for project in projects %}
+        <div class="card bg-base-100 shadow-xl transition-transform duration-300 hover:scale-105">
+            {% if project.image %}
+            <figure><img src="{{ project.image.url }}" alt="{{ project.title }}" class="h-56 w-full object-cover" /></figure>
+            {% endif %}
+            <div class="card-body">
+                <h2 class="card-title">{{ project.title }}</h2>
+                <p>{{ project.description|truncatewords:30 }}</p> 
+                <div class="text-xs text-gray-500 mt-2">
+                    Completed on: {{ project.created_at|date:"d M Y" }}
+                </div>
+                <div class="card-actions justify-end mt-4">
+                    <a href="{% url 'project_detail' project.id %}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center col-span-3">Abhi koi project add nahi kiya hai.</p>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

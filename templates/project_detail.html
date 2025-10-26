@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mx-auto py-12 px-4 md:px-0">
+    <div class="max-w-4xl mx-auto">
+
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ project.title }}</h1>
+        <div class="text-md text-gray-500 mb-8">
+            Completed on: {{ project.created_at|date:"F d, Y" }}
+        </div>
+
+        {% if project.image %}
+        <img src="{{ project.image.url }}" alt="{{ project.title }}" class="w-full h-auto md:h-[500px] object-cover rounded-lg shadow-xl mb-8">
+        {% endif %}
+
+        <div class="prose prose-lg max-w-none bg-base-100 p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-semibold">About this project</h2>
+            {{ project.description|linebreaks }}
+        </div>
+
+        <div class="mt-8 flex gap-4">
+            {% if project.github_url %}
+            <a href="{{ project.github_url }}" class="btn btn-primary btn-lg" target="_blank">
+                View on GitHub
+            </a>
+            {% endif %}
+            {% if project.live_url %}
+            <a href="{{ project.live_url }}" class="btn btn-secondary btn-lg" target="_blank">
+                View Live Demo
+            </a>
+            {% endif %}
+        </div>
+
+        <div class="mt-12">
+            <a href="{% url 'project_list' %}" class="btn btn-outline">&larr; Back to Projects</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,298 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Hero Section - Horizontal Layout with Profile Photo -->
+<div class="hero min-h-screen bg-gradient-to-br from-base-100 via-base-200 to-base-100 relative overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+    </div>
+    
+    <div class="hero-content w-full max-w-7xl mx-auto px-4 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center justify-between w-full gap-12">
+            
+            <!-- Left Side - Text Content -->
+            <div class="flex-1 text-center lg:text-left space-y-8">
+                <!-- Badge -->
+                <div class="inline-block animate-bounce">
+                    <span class="badge badge-primary badge-lg gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        Available for Work
+                    </span>
+                </div>
+                
+                <!-- Main Heading -->
+                <div>
+                    <h1 class="text-6xl md:text-7xl lg:text-8xl font-black mb-4">
+                        <span class="block text-base-content">Hello,</span>
+                        <span class="block bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-gradient">
+                            I'm Ashish
+                        </span>
+                    </h1>
+                    <div class="h-1 w-32 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto lg:mx-0"></div>
+                </div>
+                
+                <!-- Subtitle -->
+                <div class="space-y-2">
+                    <p class="text-2xl md:text-3xl font-bold text-base-content/90">
+                        AI & LLM Engineer
+                    </p>
+                    <p class="text-lg md:text-xl text-base-content/70 flex items-center justify-center lg:justify-start gap-2 flex-wrap">
+                        <span class="badge badge-outline">Django Expert</span>
+                        <span class="badge badge-outline">Tech Blogger</span>
+                        <span class="badge badge-outline">Problem Solver</span>
+                    </p>
+                </div>
+                
+                <!-- Description -->
+               <p class="text-lg md:text-xl text-base-content/80 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+    Building intelligent systems and <span class="text-primary font-semibold">LLM-powered tools</span>. Skilled in Python, PyTorch, embeddings, and RAG workflows. Passionate about creating AI solutions for real-world problems. Let's build something great together! 🚀
+</p>
+
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="{% url 'project_list' %}" class="btn btn-primary btn-lg gap-2 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:rotate-12 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd" />
+                        </svg>
+                        View My Work
+                    </a>
+                    <a href="https://github.com/ashish39403" class="btn btn-outline btn-lg gap-2 group" target="_blank" rel="noopener noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GitHub Profile
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Right Side - Profile Photo & Animation -->
+            <div class="flex-1 flex items-center justify-center">
+                <div class="relative w-full max-w-md">
+                    <!-- Animated Rings -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="absolute w-72 h-72 border-4 border-primary/20 rounded-full animate-spin-slow"></div>
+                        <div class="absolute w-80 h-80 border-4 border-secondary/20 rounded-full animate-spin-reverse"></div>
+                        <div class="absolute w-96 h-96 border-4 border-accent/10 rounded-full animate-pulse"></div>
+                    </div>
+                    
+                    <!-- Profile Photo Container -->
+                    <div class="relative z-10 flex items-center justify-center">
+                        <div class="avatar">
+                            <div class="w-64 md:w-72 rounded-full ring ring-primary ring-offset-base-100 ring-offset-8 shadow-2xl hover:ring-secondary transition-all duration-500 hover:scale-105 animate-float">
+                              <img src="{% static 'images/ashish.jpg' %}" alt="Ashish Profile Photo" class="object-cover" />
+
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Badges -->
+                        <div class="absolute -top-4 -right-4 animate-bounce" style="animation-delay: 0.2s;">
+                            <div class="bg-primary text-primary-content p-3 rounded-full shadow-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute -bottom-4 -left-4 animate-bounce" style="animation-delay: 0.5s;">
+                            <div class="bg-secondary text-secondary-content p-3 rounded-full shadow-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Stats Section - Horizontal Cards -->
+<div class="bg-base-200 py-20">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Stat 1 -->
+            <div class="card bg-gradient-to-br from-primary/10 to-primary/5 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-primary/20">
+                <div class="card-body items-center text-center">
+                    <div class="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mb-4 animate-pulse">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title text-5xl font-black text-primary">1+</h3>
+                    <p class="text-xl font-bold">Years of Experience</p>
+                    <p class="text-base-content/60">Growing every day</p>
+                </div>
+            </div>
+            
+            <!-- Stat 2 -->
+            <div class="card bg-gradient-to-br from-secondary/10 to-secondary/5 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-secondary/20">
+                <div class="card-body items-center text-center">
+                    <div class="w-20 h-20 bg-secondary/20 rounded-full flex items-center justify-center mb-4 animate-pulse" style="animation-delay: 0.2s;">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title text-5xl font-black text-secondary">5+</h3>
+                    <p class="text-xl font-bold">Projects Completed</p>
+                    <p class="text-base-content/60">And counting</p>
+                </div>
+            </div>
+            
+            <!-- Stat 3 -->
+            <div class="card bg-gradient-to-br from-accent/10 to-accent/5 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-accent/20">
+                <div class="card-body items-center text-center">
+                    <div class="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center mb-4 animate-pulse" style="animation-delay: 0.4s;">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                        </svg>
+                    </div>
+                    <h3 class="card-title text-5xl font-black text-accent">95%</h3>
+                    <p class="text-xl font-bold">Client Satisfaction</p>
+                    <p class="text-base-content/60">Happy clients</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Projects Section -->
+<div class="py-20 px-4 max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+        <h2 class="text-5xl md:text-6xl font-black mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Featured Projects
+        </h2>
+        <p class="text-base-content/70 text-xl">Check out some of my recent work</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for project in projects %}
+        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-base-300">
+            {% if project.image %}
+            <figure class="relative overflow-hidden h-56">
+                <img src="{{ project.image.url }}" alt="{{ project.title }}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+                <div class="absolute inset-0 bg-gradient-to-t from-base-100 to-transparent opacity-60"></div>
+            </figure>
+            {% endif %}
+            <div class="card-body">
+                <h2 class="card-title text-xl font-bold">
+                    {{ project.title }}
+                    <div class="badge badge-secondary badge-sm animate-pulse">New</div>
+                </h2>
+                <p class="text-base-content/70">{{ project.description|truncatewords:20 }}</p>
+                
+                <div class="card-actions justify-end mt-4">
+                    <a href="{% url 'project_detail' project.id %}" class="btn btn-primary btn-sm gap-2 group">
+                        View Details
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-span-full text-center py-12">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 mx-auto text-base-content/30 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+            </svg>
+            <p class="text-base-content/70 text-xl">Comming soon.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Blog Section -->
+<div class="bg-base-200 py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-5xl md:text-6xl font-black mb-4 bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
+                Latest From The Blog
+            </h2>
+            <p class="text-base-content/70 text-xl">Insights, tutorials, and tech thoughts</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for post in posts %}
+            <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-base-300">
+                {% if post.image %}
+                <figure class="relative overflow-hidden h-56">
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-base-100 to-transparent opacity-60"></div>
+                </figure>
+                {% endif %}
+                <div class="card-body">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="badge badge-outline badge-sm">{{ post.created_at|date:"M d, Y" }}</div>
+                    </div>
+                    <h2 class="card-title text-xl font-bold">{{ post.title }}</h2>
+                    <p class="text-base-content/70">{{ post.content|truncatewords:20 }}</p>
+                    
+                    <div class="card-actions justify-end mt-4">
+                        <a href="{% url 'blog_detail' post.id %}" class="btn btn-secondary btn-sm gap-2 group">
+                            Read More
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-span-full text-center py-12">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 mx-auto text-base-content/30 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                </svg>
+                <p class="text-base-content/70 text-xl">Comming soon</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<style>
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+}
+
+.animate-spin-reverse {
+    animation: spin-reverse 15s linear infinite;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+}
+</style>
+
+{% endblock %}
