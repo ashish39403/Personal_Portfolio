@@ -26,11 +26,10 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = [
-               
-                 ]
+ALLOWED_HOSTS = ['127.0.0.1',
+    'localhost',
+    config('WEB_HOST', default='') ]
 
 
 # Application definition
@@ -142,7 +141,7 @@ INTERNAL_IPS = [
 
 # core/settings.py ke neeche add karein
 
-NPM_BIN_PATH = r"E:\Program Files\New Folder\npm.cmd"
+# NPM_BIN_PATH = r"E:\Program Files\New Folder\npm.cmd"
 
 
 # settings.py ke neeche
