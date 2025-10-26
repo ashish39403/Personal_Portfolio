@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config('SECRET_KEY')
 
+CLOUDINARY_URL = config('CLOUDINARY_URL', default='')
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 
@@ -45,6 +46,9 @@ INSTALLED_APPS = [
     'tailwind',
     'theme', 
     'portfolio',
+    
+    'cloudinary_storage',
+    'cloudinary',
     
     
 ]
@@ -150,6 +154,7 @@ INTERNAL_IPS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Pehle se maujood STATIC_URL ke neeche ye add karein
 STATIC_URL = '/static/'
